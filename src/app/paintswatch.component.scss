@@ -1,0 +1,21 @@
+:host {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  aspect-ratio: 1/1;
+  --color1: #4462b2;
+  --color2: #071572;
+  background: linear-gradient(
+      5deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgb(247 247 247 / 60%) 50%,
+      rgba(255, 255, 255, 0) 65%
+    ),
+    radial-gradient(
+      closest-side,
+      var(--color1) 0,
+      var(--color1) 15%,
+      var(--color2) 180%
+    );
+}

@@ -24,8 +24,16 @@
 }
 
 :host *.unknown-color {
-  background-color: transparent;
-  border: solid 1px rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(
+    -45deg,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
 }
 
 :host *.mono-color {

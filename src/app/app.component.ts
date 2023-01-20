@@ -10,6 +10,7 @@ import { Paintswatch } from './paintswatch.type';
   <br>
   <sof-paintswatch *ngFor="let paintswatch of this.paintswatches$ | async;" [paintswatch]="paintswatch"></sof-paintswatch>
   <sof-paintswatch></sof-paintswatch>
+  <sof-paintswatch [paintswatch]="testPaintSwatch1"></sof-paintswatch>
   `,
   styleUrls: ['./app.component.css'],
   providers: [ImaginColorsService],
@@ -35,17 +36,22 @@ export class AppComponent {
     'l8l8',
     's9s9',
     '3a3a',
+    'n90e',
   ];
 
   testPaintSwatch1: Paintswatch = {
     colors: [
       {
-        baseColorRGBCode: '#aeaead',
-        highLightColorRGBCode: '#abacb1',
+        baseColorRGBCode: '#b40f14',
+        highLightColorRGBCode: '#ac0a0e',
+      },
+      {
+        baseColorRGBCode: '#000000',
+        highLightColorRGBCode: '#131313',
       },
     ],
-    manufacturerNames: ['4d4d', '7867fdg'],
-    description: 'Grey',
+    manufacturerNames: ['n90e'],
+    description: 'Bi color',
   };
 
   testPaintSwatch2: Paintswatch = {

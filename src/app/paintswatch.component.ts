@@ -33,8 +33,8 @@ export class PaintSwatchComponent {
     if (value.colors.length >= 1) {
       const c = value.colors[0];
       this.c1 = c.baseColorRGBCode;
-      if (c.highColorRGBCode !== undefined) {
-        this.c2 = c.highColorRGBCode;
+      if (c.highLightColorRGBCode !== undefined) {
+        this.c2 = c.highLightColorRGBCode;
       }
     }
     //dual colors
@@ -42,8 +42,8 @@ export class PaintSwatchComponent {
       this.className = 'dual-color';
       const c = value.colors[1];
       this.c3 = c.baseColorRGBCode;
-      if (c.highColorRGBCode !== undefined) {
-        this.c4 = c.highColorRGBCode;
+      if (c.highLightColorRGBCode !== undefined) {
+        this.c4 = c.highLightColorRGBCode;
       }
     }
   }

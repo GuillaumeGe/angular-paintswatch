@@ -6,6 +6,6 @@ export interface Paintswatch {
 
 export interface PaintswatchColor {
   baseColorRGBCode: string;
-  mediumColorRGBColor?: string;
-  highColorRGBCode?: string;
+  mediumLightColorRGBColor?: string;
+  highLightColorRGBCode?: string;
 }

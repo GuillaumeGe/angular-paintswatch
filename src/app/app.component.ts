@@ -7,16 +7,14 @@ import { Paintswatch } from './paintswatch.type';
   selector: 'my-app',
   template: `
   <button class="" (click)="fetchColors()">Get Colors</button>
-
-  <sof-paintswatch [paintswatch]="testPaintSwatch1"></sof-paintswatch>
-  <sof-paintswatch [paintswatch]="testPaintSwatch2"></sof-paintswatch>
-  <sof-paintswatch [paintswatch]="testPaintSwatch3"></sof-paintswatch>
+  <br>
+  <sof-paintswatch *ngFor="let paintswatch of this.paintswatches$ | async;" [paintswatch]="paintswatch"></sof-paintswatch>
   `,
   styleUrls: ['./app.component.css'],
   providers: [ImaginColorsService],
 })
 export class AppComponent {
-  paintswatches$ = new Subject<any>();
+  paintswatches$: Observable<Paintswatch[]>;
   response$: Observable<any>;
 
   milesColorIDs = [
@@ -42,7 +40,7 @@ export class AppComponent {
     colors: [
       {
         baseColorRGBCode: '#aeaead',
-        highColorRGBCode: '#abacb1',
+        highLightColorRGBCode: '#abacb1',
       },
     ],
     manufacturerNames: ['4d4d', '7867fdg'],
@@ -53,7 +51,7 @@ export class AppComponent {
     colors: [
       {
         baseColorRGBCode: '#1b0d11',
-        highColorRGBCode: '#a03c59',
+        highLightColorRGBCode: '#a03c59',
       },
     ],
     manufacturerNames: ['3a3a'],
@@ -64,7 +62,7 @@ export class AppComponent {
     colors: [
       {
         baseColorRGBCode: '#071572',
-        highColorRGBCode: '#4462b2',
+        highLightColorRGBCode: '#4462b2',
       },
     ],
     manufacturerNames: ['s9s9'],
@@ -80,11 +78,11 @@ export class AppComponent {
   }
 
   fetchColors() {
-    this.response$ = this.imaginColorService.getPaintSwatches(
+    this.paintswatches$ = this.imaginColorService.getPaintSwatches(
       this.brand,
       this.milesColorIDs
     );
-    this.response$.subscribe((x) => console.log(x));
+    this.paintswatches$.subscribe((x) => console.log(x));
   }
 
   getColorIDs() {

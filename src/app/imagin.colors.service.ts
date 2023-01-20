@@ -50,7 +50,7 @@ export class ImaginColorsService {
     return undefined;
   }
 
-  getPaintSwatches(makeName: string, ids: string[]): Observable<Object> {
+  getPaintSwatches(makeName: string, ids: string[]): Observable<Paintswatch[]> {
     const val = ids.join(',');
     const url = `https://cdn.imagin.studio/getPaintSwatches?make=${makeName}&paints=${val}`;
 
@@ -71,11 +71,11 @@ export class ImaginColorsService {
                       baseColorRGBCode:
                         response.paints[imaginID]['primarySprayCan'][
                           'primarySprayCanLowLightRGB'
-                        ],
-                      highColorRGBCode:
+                        ] ?? '',
+                      highLightColorRGBCode:
                         response.paints[imaginID]['primarySprayCan'][
                           'primarySprayCanHighLightRGB'
-                        ],
+                        ] ?? '',
                     },
                   ],
                   manufacturerNames: [imaginID],

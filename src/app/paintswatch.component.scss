@@ -14,20 +14,25 @@
   position: relative;
   cursor: pointer;
   aspect-ratio: 1/1;
-  --color1: #4462b2;
-  --color2: #071572;
-  --color3: #741955;
-  --color4: #720707;
-  --deg: 10deg;
+  --color1: transparent;
+  --color2: transparent;
+  --color3: transparent;
+  --color4: transparent;
+  --deg: -45deg;
   padding: 5px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+:host *.unknown-color {
+  background-color: transparent;
+  border: solid 1px rgba(0, 0, 0, 0.05);
 }
 
 :host *.mono-color {
   background: linear-gradient(
       var(--deg),
       rgba(255, 255, 255, 0) 45%,
-      rgb(247 247 247 / 60%) 50%,
+      rgb(247 247 247 / 50%) 50%,
       rgba(255, 255, 255, 0) 65%
     ),
     radial-gradient(

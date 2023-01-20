@@ -24,13 +24,14 @@ export class PaintSwatchComponent {
   c2 = '';
   c3 = '';
   c4 = '';
-  className: 'mono-color' | 'dual-color' = 'mono-color';
+  className: 'unknown-color' | 'mono-color' | 'dual-color' = 'unknown-color';
   title = '';
 
   @Input() set paintswatch(value: Paintswatch) {
-    this.className = 'mono-color';
+    this.className = 'unknown-color';
     //mono color
     if (value.colors.length >= 1) {
+      this.className = 'mono-color';
       const c = value.colors[0];
       this.c1 = c.baseColorRGBCode;
       if (c.highLightColorRGBCode !== undefined) {
@@ -48,7 +49,5 @@ export class PaintSwatchComponent {
     }
   }
 
-  constructor() {
-    console.log('created');
-  }
+  constructor() {}
 }

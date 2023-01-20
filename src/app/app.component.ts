@@ -9,6 +9,7 @@ import { Paintswatch } from './paintswatch.type';
   <button class="" (click)="fetchColors()">Get Colors</button>
   <br>
   <sof-paintswatch *ngFor="let paintswatch of this.paintswatches$ | async;" [paintswatch]="paintswatch"></sof-paintswatch>
+  <sof-paintswatch></sof-paintswatch>
   `,
   styleUrls: ['./app.component.css'],
   providers: [ImaginColorsService],

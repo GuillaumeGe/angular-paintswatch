@@ -5,20 +5,48 @@ import {
   HostBinding,
   Input,
 } from '@angular/core';
+import { Paintswatch } from './paintswatch.type';
 
 @Component({
   selector: 'sof-paintswatch',
-  template: `<div
-  </div>`,
+  template: `<button [class]="this.className" 
+  [style.--color1]="this.c1"
+  [style.--color2]="this.c2"
+  [style.--color3]="this.c3"
+  [style.--color4]="this.c4"
+  [title]="title">
+  </button>`,
   styleUrls: ['./paintswatch.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaintSwatchComponent {
-  @Input() backgroundColor: string;
-  @Input() foregroundColor: string;
+  c1 = '';
+  c2 = '';
+  c3 = '';
+  c4 = '';
+  className: 'mono-color' | 'dual-color' = 'mono-color';
+  title = '';
 
-  @HostBinding('style.--color1') color1: string;
-  @HostBinding('style.--color2') color2: string;
+  @Input() set paintswatch(value: Paintswatch) {
+    this.className = 'mono-color';
+    //mono color
+    if (value.colors.length >= 1) {
+      const c = value.colors[0];
+      this.c1 = c.baseColorRGBCode;
+      if (c.highColorRGBCode !== undefined) {
+        this.c2 = c.highColorRGBCode;
+      }
+    }
+    //dual colors
+    if (value.colors.length >= 2) {
+      this.className = 'dual-color';
+      const c = value.colors[1];
+      this.c3 = c.baseColorRGBCode;
+      if (c.highColorRGBCode !== undefined) {
+        this.c4 = c.highColorRGBCode;
+      }
+    }
+  }
 
   constructor() {
     console.log('created');

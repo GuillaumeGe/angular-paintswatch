@@ -5,10 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PaintSwatchComponent } from './paintswatch.component';
-import { ImaginColorsService } from './imagin.colors.service';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpClientModule, ImaginColorsService],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   declarations: [AppComponent, PaintSwatchComponent],
   bootstrap: [AppComponent],
 })

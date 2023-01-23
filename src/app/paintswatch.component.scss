@@ -21,6 +21,16 @@
   --deg: -45deg;
   padding: 5px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+  border: solid 2px transparent;
+}
+
+:host *::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 
 :host *.unknown-color {
@@ -34,6 +44,7 @@
     orange,
     red
   );
+  border-color: blue;
 }
 
 :host *.mono-color {
@@ -55,13 +66,14 @@
   background: linear-gradient(
       var(--deg),
       rgba(255, 255, 255, 0) 40%,
-      rgb(247 247 247 / 60%) 50%,
+      rgb(247 247 247 / 50%) 50%,
       rgba(255, 255, 255, 0) 65%
     ),
-    radial-gradient(
-      closest-side,
-      var(--color1) 0,
-      var(--color1) 15%,
-      var(--color2) 180%
+    linear-gradient(
+      var(--deg),
+      var(--color1) 25%,
+      var(--color2) 50%,
+      var(--color3) 50%,
+      var(--color4) 100%
     );
 }

@@ -1,27 +1,28 @@
 :host button {
   appearance: none;
-  padding: 0;
+  padding: 0px;
   border: none;
   background: transparent;
 }
 
 :host * {
-  border-radius: 20%;
-  width: 48px;
-  height: 48px;
-  margin: 5px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  aspect-ratio: 1/1;
   --color1: transparent;
   --color2: transparent;
   --color3: transparent;
   --color4: transparent;
+  --border-width: 4px;
+  --border-spacing: -04px;
   --deg: -45deg;
-  padding: 5px;
+  --aspect-ratio: 1/1;
+
+  border-radius: 20%;
+  width: 64px;
+  margin: calc(var(--border-spacing) + (var(--border-width) * 2) + 6px);
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: var(--aspect-ratio);
   box-shadow: 2px 2px rgba(0, 0, 0, 0.05);
-  border: solid 2px transparent;
 }
 
 :host *::after {
@@ -31,6 +32,23 @@
   top: 0;
   left: 0;
   background-color: black;
+}
+
+:host *::after {
+  background: transparent;
+  border-radius: 24%;
+  border: solid var(--border-width) transparent;
+  width: calc(
+    100% + calc(var(--border-width) * 2) + calc(var(--border-spacing) * 2)
+  );
+  aspect-ratio: var(--aspect-ratio);
+  position: absolute;
+  top: calc(-1 * ((var(--border-width) * 2) + (var(--border-spacing))));
+  left: calc(-1 * ((var(--border-width) * 2) + (var(--border-spacing))));
+}
+
+:host *.selected::after {
+  border-color: rgba(0, 162, 255, 0.5);
 }
 
 :host *.unknown-color {
@@ -44,7 +62,6 @@
     orange,
     red
   );
-  border-color: blue;
 }
 
 :host *.mono-color {

@@ -10,8 +10,8 @@ import { Paintswatch } from './paintswatch.type';
   <br>
   <sof-paintswatch *ngFor="let paintswatch of this.paintswatches$ | async;" [paintswatch]="paintswatch"></sof-paintswatch>
   <sof-paintswatch></sof-paintswatch>
-  <sof-paintswatch [paintswatch]="testPaintSwatch2"></sof-paintswatch>
-  <sof-paintswatch [paintswatch]="testPaintSwatch1"></sof-paintswatch>
+  <sof-paintswatch [paintswatch]="testPaintSwatch2" [selected]="true"></sof-paintswatch>
+  <sof-paintswatch [paintswatch]="testPaintSwatch1" [selected]="true"></sof-paintswatch>
   `,
   styleUrls: ['./app.component.css'],
   providers: [ImaginColorsService],

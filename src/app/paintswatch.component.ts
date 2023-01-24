@@ -7,10 +7,13 @@ import {
 } from '@angular/core';
 import { Paintswatch } from './paintswatch.type';
 
+enum PaintSwatchType {}
+
 @Component({
   selector: 'sof-paintswatch',
   template: `<button 
   [class]="this.className" 
+  [class.selected]="this.selected"
   [style.--color1]="this.c1"
   [style.--color2]="this.c2"
   [style.--color3]="this.c3"
@@ -25,6 +28,8 @@ export class PaintSwatchComponent {
   c3 = 'transparent';
   c4 = 'transparent';
   className: 'unknown-color' | 'mono-color' | 'dual-color' = 'unknown-color';
+
+  @Input() selected = false;
 
   @Input() set paintswatch(value: Paintswatch) {
     this.className = 'unknown-color';
